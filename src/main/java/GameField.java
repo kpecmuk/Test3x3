@@ -14,13 +14,13 @@ public class GameField {
         this.sizeY = sizeY;
 
         for (int x = 0; x < sizeX; x++) {
-            for (int y = 1; y < sizeY; y++) {
+            for (int y = 0; y < sizeY; y++) {
                 gameField.add(new Cell(x, y));
             }
         }
     }
 
-    public ArrayList<Cell> getGameField() {
+    public ArrayList<Cell> getGF() {
         return gameField;
     }
 

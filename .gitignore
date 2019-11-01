@@ -5,7 +5,7 @@ gradle/
 target/
 test/
 out/
-
+#src/main/resources/
 *.class
 *.iml
 

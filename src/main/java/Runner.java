@@ -51,8 +51,7 @@ public class Runner extends JFrame {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
 
-                for (Cell cell : game.getGameField().getGameField()) {
-
+                for (Cell cell : game.field().getGF()) {
                     g.drawImage((Image) game.getBox(cell).image,
                             cell.getX() * IMAGE_SIZE, cell.getY() * IMAGE_SIZE, this);
                 }
@@ -74,9 +73,7 @@ public class Runner extends JFrame {
             }
         });
 
-        panel.setPreferredSize(new Dimension(
-                COLS * IMAGE_SIZE,
-                ROWS * IMAGE_SIZE));
+        panel.setPreferredSize(new Dimension(COLS * IMAGE_SIZE, ROWS * IMAGE_SIZE));
         add(panel);
     }
 
@@ -91,17 +88,21 @@ public class Runner extends JFrame {
     }
 
     private void setImage() {
-        log.info("Inside setImage()");
         for (Box box : Box.values())
             box.image = getImage(box.name());
     }
 
     private Image getImage(String name) {
-        log.info("Inside getImage()");
         String filename = "img/" + name.toLowerCase() + ".png";
 
-        ImageIcon icon = new ImageIcon(getClass().getResource(filename));
-        log.info("ImageIcon");
+        ImageIcon icon = null;
+        try {
+            icon = new ImageIcon(getClass().getResource(filename));
+        } catch (NullPointerException e) {
+            log.error("Can't load images");
+        }
+
+        assert icon != null;
         return icon.getImage();
     }
 }

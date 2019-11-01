@@ -9,12 +9,15 @@ public class Game {
     private static final Logger log = LoggerFactory.getLogger(Game.class);
     private GameField gameField;
 
-    public GameField getGameField() {
+    public GameField field() {
         return gameField;
     }
 
     public Game(int cols, int rows) {
         gameField = new GameField(cols, rows);
+        for (Cell cell: gameField.getGF()) {
+            cell.setSymbol(Box.NUM2);
+        }
     }
 
     public void start() {
@@ -26,6 +29,6 @@ public class Game {
     }
 
     public Box getBox(Cell cell) {
-        return Box.NUM1;
+        return cell.getSymbol();
     }
 }
