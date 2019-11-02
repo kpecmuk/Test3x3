@@ -1,9 +1,9 @@
 public enum Box {
     ICON,
-    surprised1,
-    surprised2,
-    surprised3,
-    happy1;
+    emo1,
+    emo2,
+    emo3,
+    emo4;
 
     public Object image;
 

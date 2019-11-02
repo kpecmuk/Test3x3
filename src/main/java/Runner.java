@@ -31,7 +31,6 @@ public class Runner extends JFrame {
     private Runner() {
         game = new Game(COLS, ROWS);
         game.start();
-//        Ranges.setSize(new Coord(COLS, ROWS));
         setImage();
         initLabel();
         initPanel();
