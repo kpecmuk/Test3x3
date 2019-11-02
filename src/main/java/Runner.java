@@ -21,7 +21,7 @@ public class Runner extends JFrame {
     private JLabel label;
     private final int COLS = 3;
     private final int ROWS = 3;
-    private final int IMAGE_SIZE = 50;
+    private final int IMAGE_SIZE = 128;
 
     public static void main(String[] args) {
 
@@ -31,9 +31,7 @@ public class Runner extends JFrame {
     private Runner() {
         game = new Game(COLS, ROWS);
         game.start();
-
 //        Ranges.setSize(new Coord(COLS, ROWS));
-
         setImage();
         initLabel();
         initPanel();
