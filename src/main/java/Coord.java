@@ -2,6 +2,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * Класс координат. Здесь содержатся координаты ячейки.
+ *
  * @author kpecmuk
  * @since 01.11.2019
  */

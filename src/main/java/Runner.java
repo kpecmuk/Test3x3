@@ -7,6 +7,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
+ * Что это такое?
+ * - ну это типа игры с полем 3 на 3 или больше, где требуется менять
+ * иконки, жмякая на них, чтобы все из них стали одинаковыми.
+ *
  * @author kpecmuk
  * @since 01.11.2019
  */

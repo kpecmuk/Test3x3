@@ -2,6 +2,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * Класс обработки игровых событий и управления игрой.
+ *
  * @author kpecmuk
  * @since 01.11.2019
  */

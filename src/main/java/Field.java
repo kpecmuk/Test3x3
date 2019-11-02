@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 
 /**
+ * Игровое поле, состоящее из списка всех ячеек, из которого оно состоит.
+ *
  * @author kpecmuk
  * @since 31.10.2019
  */
@@ -30,10 +32,6 @@ public class Field {
 
     public int getSizeY() {
         return sizeY;
-    }
-
-    void showField() {
-
     }
 
     public void turn(Coord coord) {
