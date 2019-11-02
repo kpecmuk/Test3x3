@@ -16,7 +16,7 @@ public class Game {
     public Game(int cols, int rows) {
         gameField = new GameField(cols, rows);
         for (Cell cell: gameField.getGF()) {
-            cell.setSymbol(Box.happy1);
+            cell.setIcon(Box.happy1);
         }
     }
 
@@ -29,6 +29,6 @@ public class Game {
     }
 
     public Box getBox(Cell cell) {
-        return cell.getSymbol();
+        return cell.getIcon();
     }
 }

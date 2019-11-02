@@ -6,19 +6,19 @@ class Cell {
 
     private int x;
     private int y;
-    private Box symbol;
+    private Box icon;
 
     public Cell(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public Box getSymbol() {
-        return symbol;
+    public Box getIcon() {
+        return icon;
     }
 
-    void setSymbol(Box symbol) {
-        this.symbol = symbol;
+    void setIcon(Box icon) {
+        this.icon = icon;
     }
 
     public int getX() {
