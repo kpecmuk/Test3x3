@@ -24,6 +24,6 @@ jar {
         }
     }
     manifest {
-        attributes 'Main-Class': 'ru.kpecmuk.logic3x3.Runner'
+        attributes 'Main-Class': 'Runner'
     }
 }

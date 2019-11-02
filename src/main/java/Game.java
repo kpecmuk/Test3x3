@@ -7,16 +7,16 @@ import org.slf4j.LoggerFactory;
  */
 public class Game {
     private static final Logger log = LoggerFactory.getLogger(Game.class);
-    private GameField gameField;
+    private Field field;
 
-    public GameField field() {
-        return gameField;
+    public Field field() {
+        return field;
     }
 
     public Game(int cols, int rows) {
-        gameField = new GameField(cols, rows);
-        for (Cell cell: gameField.getGF()) {
-            cell.setIcon(Box.emo1);
+        field = new Field(cols, rows);
+        for (Cell cell : field.getGF()) {
+            cell.setIcon(Box.values()[(cell.getCoord().getX() + cell.getCoord().getY()) % Box.values().length]);
         }
     }
 
@@ -25,7 +25,8 @@ public class Game {
     }
 
     public void pressLeftButton(Coord coord) {
-
+        log.info("Mouse left key pressed at: " + coord.getX() + " " + coord.getY());
+        field.turn(coord);
     }
 
     public Box getBox(Cell cell) {

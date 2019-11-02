@@ -4,24 +4,24 @@ import java.util.ArrayList;
  * @author kpecmuk
  * @since 31.10.2019
  */
-public class GameField {
-    private ArrayList<Cell> gameField = new ArrayList<>();
+public class Field {
+    private ArrayList<Cell> field = new ArrayList<>();
     private int sizeX;
     private int sizeY;
 
-    public GameField(int sizeX, int sizeY) {
+    public Field(int sizeX, int sizeY) {
         this.sizeX = sizeX;
         this.sizeY = sizeY;
 
         for (int x = 0; x < sizeX; x++) {
             for (int y = 0; y < sizeY; y++) {
-                gameField.add(new Cell(x, y));
+                field.add(new Cell(new Coord(x, y)));
             }
         }
     }
 
     public ArrayList<Cell> getGF() {
-        return gameField;
+        return field;
     }
 
     public int getSizeX() {
@@ -36,4 +36,10 @@ public class GameField {
 
     }
 
+    public void turn(Coord coord) {
+        for (Cell cell : field) {
+
+        }
+
+    }
 }

@@ -6,8 +6,6 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import static com.sun.javafx.fxml.expression.Expression.add;
-
 /**
  * @author kpecmuk
  * @since 01.11.2019
@@ -19,8 +17,8 @@ public class Runner extends JFrame {
 
     private JPanel panel;
     private JLabel label;
-    private final int COLS = 3;
-    private final int ROWS = 3;
+    private final int COLS = 5;
+    private final int ROWS = 5;
     private final int IMAGE_SIZE = 128;
 
     public static void main(String[] args) {
@@ -50,7 +48,7 @@ public class Runner extends JFrame {
 
                 for (Cell cell : game.field().getGF()) {
                     g.drawImage((Image) game.getBox(cell).image,
-                            cell.getX() * IMAGE_SIZE, cell.getY() * IMAGE_SIZE, this);
+                            cell.getCoord().getX() * IMAGE_SIZE, cell.getCoord().getY() * IMAGE_SIZE, this);
                 }
             }
         };

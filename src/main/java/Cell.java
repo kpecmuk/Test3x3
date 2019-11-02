@@ -4,13 +4,11 @@
  */
 class Cell {
 
-    private int x;
-    private int y;
+    private Coord coord;
     private Box icon;
 
-    public Cell(int x, int y) {
-        this.x = x;
-        this.y = y;
+    public Cell(Coord coord) {
+        this.coord = coord;
     }
 
     public Box getIcon() {
@@ -21,11 +19,7 @@ class Cell {
         this.icon = icon;
     }
 
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
+    public Coord getCoord() {
+        return coord;
     }
 }
