@@ -16,7 +16,7 @@ public class Game {
     public Game(int cols, int rows) {
         gameField = new GameField(cols, rows);
         for (Cell cell: gameField.getGF()) {
-            cell.setSymbol(Box.NUM2);
+            cell.setSymbol(Box.happy1);
         }
     }
 
