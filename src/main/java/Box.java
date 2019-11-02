@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public enum Box {
     emo5,
     emo6,
@@ -9,12 +7,11 @@ public enum Box {
     public Object image;
 
     public Box getNextNumberBox() {
-
-        return Box.values()[this.ordinal() + 1];
+        if (ordinal() == 3) {
+            return Box.values()[0];
+        } else
+            return Box.values()[this.ordinal() + 1];
     }
-
-    private Random random = new Random();
-
 
     int getNumber() {
         return this.ordinal();
