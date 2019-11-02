@@ -9,13 +9,22 @@ import java.util.ArrayList;
  * @author kpecmuk
  * @since 31.10.2019
  */
-public class Field {
+class Field {
     private static final Logger log = LoggerFactory.getLogger(Game.class);
     private ArrayList<Cell> field = new ArrayList<>();
     private int sizeX;
     private int sizeY;
 
-    public Field(int sizeX, int sizeY) {
+    int getSizeX() {
+        return sizeX;
+    }
+
+    int getSizeY() {
+        return sizeY;
+    }
+
+
+    Field(int sizeX, int sizeY) {
         this.sizeX = sizeX;
         this.sizeY = sizeY;
 
@@ -26,17 +35,14 @@ public class Field {
         }
     }
 
-    public ArrayList<Cell> getGF() {
+    ArrayList<Cell> getGF() {
         return field;
     }
 
-    public void turn(Coord coord) {
+    void turnIcon(Coord coord) {
         for (Cell cell : field) {
-            if (cell.getCoord().equals(coord)) {
-                log.info("Turning icon");
-                log.info("Old icon id: " + cell.getIcon().ordinal());
+            if ((cell.getCoord().getX() == coord.getX()) || (cell.getCoord().getY() == (coord.getY()))) {
                 cell.setIcon(cell.getIcon().getNextNumberBox());
-                log.info("New icon id: " + cell.getIcon().ordinal());
             }
         }
     }

@@ -12,8 +12,4 @@ public enum Box {
         } else
             return Box.values()[this.ordinal() + 1];
     }
-
-    int getNumber() {
-        return this.ordinal();
-    }
 }

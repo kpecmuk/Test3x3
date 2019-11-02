@@ -9,11 +9,11 @@ class Cell {
     private Coord coord;
     private Box icon;
 
-    public Cell(Coord coord) {
+    Cell(Coord coord) {
         this.coord = coord;
     }
 
-    public Box getIcon() {
+    Box getIcon() {
         return icon;
     }
 
@@ -21,7 +21,7 @@ class Cell {
         this.icon = icon;
     }
 
-    public Coord getCoord() {
+    Coord getCoord() {
         return coord;
     }
 }

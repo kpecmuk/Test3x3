@@ -14,6 +14,8 @@ import java.awt.event.MouseEvent;
  * @author kpecmuk
  * @since 01.11.2019
  */
+
+
 public class Runner extends JFrame {
     private static final Logger log = LoggerFactory.getLogger(Runner.class);
 
@@ -21,8 +23,8 @@ public class Runner extends JFrame {
 
     private JPanel panel;
     private JLabel label;
-    private final int COLS = 5;
-    private final int ROWS = 5;
+    private final int COLS = 3;
+    private final int ROWS = 3;
     private final int IMAGE_SIZE = 128;
 
     public static void main(String[] args) {
@@ -66,8 +68,6 @@ public class Runner extends JFrame {
                 if (e.getButton() == MouseEvent.BUTTON1) {
                     game.pressLeftButton(coord);
                 }
-
-//                label.setText(getMessage());
                 panel.repaint();
             }
         });
@@ -78,7 +78,7 @@ public class Runner extends JFrame {
 
     private void initFrame() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Logic 3x3 game");
+        setTitle("Logic " + COLS + "x" + ROWS + " game");
         setResizable(false);
         setVisible(true);
         pack();
