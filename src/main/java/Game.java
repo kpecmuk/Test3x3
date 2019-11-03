@@ -21,7 +21,7 @@ class Game {
         field = new Field(cols, rows);
         for (Cell cell : field.getGF()) {
 //            cell.setIcon(Box.values()[(cell.getCoord().getX() + cell.getCoord().getY()) % Box.values().length]);
-            cell.setIcon(Box.emo5);
+            cell.setIcon(Box.emo1);
         }
     }
 
@@ -30,8 +30,9 @@ class Game {
      * rotate случайно выбирает сколько раз будем 'крутить кубик' дополнительно к тем трём оборотам
      */
     void start() {
+        log.info("Start new game");
         Random random = new Random();
-        int rotate = random.nextInt(5); //
+        int rotate = random.nextInt(5);
 
         for (int i = 0; i < 3 + rotate; i++) {
             int x = random.nextInt(field.getSizeX());
@@ -41,9 +42,7 @@ class Game {
         }
     }
 
-
     void pressLeftButton(Coord coord) {
-//        log.info("Mouse left key pressed at: " + coord.getX() + " " + coord.getY());
         field.turnIcon(coord);
     }
 

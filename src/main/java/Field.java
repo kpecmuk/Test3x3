@@ -23,7 +23,6 @@ class Field {
         return sizeY;
     }
 
-
     Field(int sizeX, int sizeY) {
         this.sizeX = sizeX;
         this.sizeY = sizeY;

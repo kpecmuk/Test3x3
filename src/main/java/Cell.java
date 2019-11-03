@@ -5,7 +5,6 @@
  * @since 31.10.2019
  */
 class Cell {
-
     private Coord coord;
     private Box icon;
 

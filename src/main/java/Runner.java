@@ -15,7 +15,6 @@ import java.awt.event.MouseEvent;
  * @since 01.11.2019
  */
 
-
 public class Runner extends JFrame {
     private static final Logger log = LoggerFactory.getLogger(Runner.class);
 
@@ -23,6 +22,7 @@ public class Runner extends JFrame {
 
     private JPanel panel;
     private JLabel label;
+    private JButton resetButton;
     private final int COLS = 3;
     private final int ROWS = 3;
     private final int IMAGE_SIZE = 128;
@@ -37,12 +37,29 @@ public class Runner extends JFrame {
         game.start();
         setImage();
         initLabel();
+        initButtons();
         initPanel();
         initFrame();
     }
 
+    private void initButtons() {
+        resetButton = new JButton(" RESET ");
+        resetButton.setFont(new Font("Century Gothic", Font.PLAIN, 18));
+        resetButton.setSize(50, 30);
+        resetButton.setBackground(Color.lightGray);
+        resetButton.setBorderPainted(false);
+        resetButton.setFocusPainted(false);
+        resetButton.addActionListener(actionEvent -> {
+            game.start();
+            panel.repaint();
+        });
+        add(resetButton, BorderLayout.NORTH);
+    }
+
     private void initLabel() {
-        label = new JLabel(" Welcome!");
+        Font font = new Font("Century Gothic", Font.BOLD, 14);
+        label = new JLabel(" (c) Kpecmuk 2019");
+        label.setFont(font);
         add(label, BorderLayout.SOUTH);
     }
 

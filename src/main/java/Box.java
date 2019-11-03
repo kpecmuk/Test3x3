@@ -1,8 +1,8 @@
 public enum Box {
-    emo5,
-    emo6,
-    emo7,
-    emo8;
+    emo1,
+    emo2,
+    emo3,
+    emo4;
 
     public Object image;
 
