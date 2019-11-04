@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.FileNotFoundException;
 
 /**
  * Что это такое?
@@ -14,7 +15,6 @@ import java.awt.event.MouseEvent;
  * @author kpecmuk
  * @since 01.11.2019
  */
-
 public class Runner extends JFrame {
     private static final Logger log = LoggerFactory.getLogger(Runner.class);
 
@@ -23,16 +23,20 @@ public class Runner extends JFrame {
     private JPanel panel;
     private JLabel label;
     private JButton resetButton;
-    private final int COLS = 3;
-    private final int ROWS = 3;
+    private final int COLS = 5;
+    private final int ROWS = 5;
     private final int IMAGE_SIZE = 128;
 
     public static void main(String[] args) {
 
-        new Runner().setVisible(true);
+        try {
+            new Runner().setVisible(true);
+        } catch (FileNotFoundException e) {
+            e.getMessage();
+        }
     }
 
-    private Runner() {
+    private Runner() throws FileNotFoundException {
         game = new Game(COLS, ROWS);
         game.start();
         setImage();
@@ -88,12 +92,11 @@ public class Runner extends JFrame {
                 panel.repaint();
             }
         });
-
         panel.setPreferredSize(new Dimension(COLS * IMAGE_SIZE, ROWS * IMAGE_SIZE));
         add(panel);
     }
 
-    private void initFrame() {
+    private void initFrame() throws FileNotFoundException {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Logic " + COLS + "x" + ROWS + " game");
         setResizable(false);
@@ -103,22 +106,22 @@ public class Runner extends JFrame {
         setIconImage(getImage("icon"));
     }
 
-    private void setImage() {
-        for (Box box : Box.values())
+    private void setImage() throws FileNotFoundException {
+        for (Box box : Box.values()) {
             box.image = getImage(box.name());
+        }
     }
 
-    private Image getImage(String name) {
+    private Image getImage(String name) throws FileNotFoundException {
         String filename = "img/" + name.toLowerCase() + ".png";
 
-        ImageIcon icon = null;
+        ImageIcon icon;
         try {
             icon = new ImageIcon(getClass().getResource(filename));
         } catch (NullPointerException e) {
             log.error("Can't load images");
+            throw new FileNotFoundException();
         }
-
-        assert icon != null;
         return icon.getImage();
     }
 }

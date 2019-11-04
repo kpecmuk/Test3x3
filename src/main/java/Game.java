@@ -21,7 +21,7 @@ class Game {
         field = new Field(cols, rows);
         for (Cell cell : field.getGF()) {
 //            cell.setIcon(Box.values()[(cell.getCoord().getX() + cell.getCoord().getY()) % Box.values().length]);
-            cell.setIcon(Box.emo1);
+            cell.setIcon(Box.values()[0]);
         }
     }
 
