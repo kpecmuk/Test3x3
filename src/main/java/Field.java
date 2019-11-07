@@ -37,12 +37,4 @@ class Field {
     ArrayList<Cell> getGF() {
         return field;
     }
-
-    void turnIcon(Coord coord) {
-        for (Cell cell : field) {
-            if ((cell.getCoord().getX() == coord.getX()) || (cell.getCoord().getY() == (coord.getY()))) {
-                cell.setIcon(cell.getIcon().getNextNumberBox());
-            }
-        }
-    }
 }

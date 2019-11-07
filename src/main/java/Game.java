@@ -11,18 +11,17 @@ import java.util.Random;
  */
 class Game {
     private static final Logger log = LoggerFactory.getLogger(Game.class);
+
     private Field field;
 
-    Field field() {
+    Field getField() {
         return field;
     }
 
     Game(int cols, int rows) {
         field = new Field(cols, rows);
-        for (Cell cell : field.getGF()) {
-//            cell.setIcon(Box.values()[(cell.getCoord().getX() + cell.getCoord().getY()) % Box.values().length]);
-            cell.setIcon(Box.values()[0]);
-        }
+        for (Cell cell : field.getGF())
+            cell.setIcon(Icons.values()[0]);
     }
 
     /**
@@ -32,21 +31,18 @@ class Game {
     void start() {
         log.info("Start new game");
         Random random = new Random();
-        int rotate = random.nextInt(5);
+        int rotate = random.nextInt(5) + 3;
+        Turn turn = new TurnNext();
 
-        for (int i = 0; i < 3 + rotate; i++) {
+        for (int i = 0; i < rotate; i++) {
             int x = random.nextInt(field.getSizeX());
             int y = random.nextInt(field.getSizeY());
-            field.turnIcon(new Coord(x, y));
+            turn.rightNow(new Coord(x, y), field);
             log.info("Coord = " + (x + 1) + " " + (y + 1));
         }
     }
 
-    void pressLeftButton(Coord coord) {
-        field.turnIcon(coord);
-    }
-
-    Box getBox(Cell cell) {
+    Icons getIcon(Cell cell) {
         return cell.getIcon();
     }
 }

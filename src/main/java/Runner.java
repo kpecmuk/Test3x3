@@ -73,8 +73,8 @@ public class Runner extends JFrame {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
 
-                for (Cell cell : game.field().getGF()) {
-                    g.drawImage((Image) game.getBox(cell).image,
+                for (Cell cell : game.getField().getGF()) {
+                    g.drawImage((Image) game.getIcon(cell).image,
                             cell.getCoord().getX() * IMAGE_SIZE, cell.getCoord().getY() * IMAGE_SIZE, this);
                 }
             }
@@ -86,10 +86,15 @@ public class Runner extends JFrame {
                 int x = e.getX() / IMAGE_SIZE;
                 int y = e.getY() / IMAGE_SIZE;
                 Coord coord = new Coord(x, y);
-                if (e.getButton() == MouseEvent.BUTTON1) {
-                    game.pressLeftButton(coord);
-                }
-                panel.repaint();
+                Turn turn;
+                if (e.getButton() == MouseEvent.BUTTON1)
+                    turn = new TurnNext();                              // будем крутить вперёд
+                else if (e.getButton() == MouseEvent.BUTTON3)
+                    turn = new TurnPrevious();                          // будем крутить назад
+                else return;                                            // нажали что-то, но не то
+
+                turn.rightNow(coord, game.getField());                  // крутим
+                panel.repaint();                                        // перерисовка
             }
         });
         panel.setPreferredSize(new Dimension(COLS * IMAGE_SIZE, ROWS * IMAGE_SIZE));
@@ -107,8 +112,8 @@ public class Runner extends JFrame {
     }
 
     private void setImage() throws FileNotFoundException {
-        for (Box box : Box.values()) {
-            box.image = getImage(box.name());
+        for (Icons icons : Icons.values()) {
+            icons.image = getImage(icons.name());
         }
     }
 

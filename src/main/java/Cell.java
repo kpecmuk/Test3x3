@@ -6,17 +6,17 @@
  */
 class Cell {
     private Coord coord;
-    private Box icon;
+    private Icons icon;
 
     Cell(Coord coord) {
         this.coord = coord;
     }
 
-    Box getIcon() {
+    Icons getIcon() {
         return icon;
     }
 
-    void setIcon(Box icon) {
+    void setIcon(Icons icon) {
         this.icon = icon;
     }
 
